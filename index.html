@@ -7,14 +7,14 @@
 
     <style>
         :root {
-            --bg: #f5f5f5;
-            --card-bg: #ffffff;
-            --border: #dcdcdc;
-            --border-hover: #b5b5b5;
-            --text: #222;
-            --text-secondary: #555;
-            --radius: 10px;
-            --size: 110px; /* tamanho dos cards */
+            --bg: #0f0f10;
+            --card-bg: #1a1a1c;
+            --border: #2b2b2d;
+            --border-hover: #4b4b4f;
+            --text: #f5f5f5;
+            --text-secondary: #9b9b9b;
+            --radius: 8px;
+            --size: 68px; /* card mais fino */
         }
 
         body {
@@ -34,33 +34,33 @@
         }
 
         .avatar {
-            width: 95px;
-            height: 95px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             border: 2px solid var(--border);
             object-fit: cover;
             margin-bottom: 10px;
-            background: #eee;
+            background: #222;
         }
 
         h1 {
             margin: 0;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 
         .subtitle {
             margin-top: 4px;
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             color: var(--text-secondary);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 10px;
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
         }
 
         @media (max-width: 600px) {
@@ -81,43 +81,40 @@
             border-radius: var(--radius);
             min-height: var(--size);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            padding: 8px 10px;
             text-decoration: none;
             color: var(--text);
-            transition: 0.2s ease;
+            transition: 0.18s ease;
             position: relative;
             cursor: pointer;
+            font-size: 0.92rem;
+            gap: 8px;
         }
 
             .card:hover {
                 border-color: var(--border-hover);
-                background: #fafafa;
+                background: #222225;
             }
 
         .icon {
-            font-size: 1.4rem;
-        }
-
-        .label {
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            display: flex;
         }
 
         /* Tooltip simples */
         .card:hover::after {
             content: attr(data-tip);
             position: absolute;
-            bottom: -32px;
+            bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
-            background: #333;
+            background: #000;
             color: #fff;
-            padding: 6px 8px;
-            font-size: 0.75rem;
-            border-radius: 6px;
+            padding: 5px 7px;
+            font-size: 0.72rem;
+            border-radius: 5px;
             white-space: nowrap;
             opacity: 1;
             pointer-events: none;
@@ -125,7 +122,7 @@
 
         .card::after {
             opacity: 0;
-            transition: 0.15s ease;
+            transition: 0.12s ease;
         }
     </style>
 </head>
@@ -140,37 +137,37 @@
     <div class="grid" id="grid"></div>
 
     <script>
-    function normalizarUrl(url) {
-      if (!url) return "#";
-      if (url.startsWith("http") || url.startsWith("mailto:")) return url;
-      return `https://${url}`;
-    }
+        function normalizarUrl(url) {
+            if (!url) return "#";
+            if (url.startsWith("http") || url.startsWith("mailto:")) return url;
+            return `https://${url}`;
+        }
 
-    async function carregarLinks() {
-      const grid = document.getElementById("grid");
-      try {
-        const res = await fetch("links.json");
-        const links = await res.json();
+        async function carregarLinks() {
+            const grid = document.getElementById("grid");
+            try {
+                const res = await fetch("links.json");
+                const links = await res.json();
 
-        links.forEach(link => {
-          const a = document.createElement("a");
-          a.href = normalizarUrl(link.url);
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.className = "card";
-          a.setAttribute("data-tip", link.descricao ?? link.url);
-          a.innerHTML = `
-            <div class="icon">${link.icone ?? "🔗"}</div>
-            <div class="label">${link.nome}</div>
-          `;
-          grid.appendChild(a);
-        });
-      } catch (e) {
-        console.error("Erro ao carregar links.json", e);
-      }
-    }
+                links.forEach(link => {
+                    const a = document.createElement("a");
+                    a.href = normalizarUrl(link.url);
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    a.className = "card";
+                    a.setAttribute("data-tip", link.descricao ?? link.url);
+                    a.innerHTML = `
+                <div class="icon">${link.icone ?? "🔗"}</div>
+                <div class="label">${link.nome}</div>
+              `;
+                    grid.appendChild(a);
+                });
+            } catch (e) {
+                console.error("Erro ao carregar links.json", e);
+            }
+        }
 
-    carregarLinks();
+        carregarLinks();
     </script>
 
 </body>

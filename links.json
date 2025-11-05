@@ -2,17 +2,20 @@
   {
     "nome": "Meu Site",
     "url": "meusite.com.br",
-    "icone": "🕸"
+    "icone": "🕸",
+    "descricao": "Site oficial"
   },
   {
     "nome": "GitHub",
     "url": "github.com/ale",
-    "icone": "🐙"
+    "icone": "🐙",
+    "descricao": "Projetos e repositórios"
   },
   {
     "nome": "LinkedIn",
     "url": "linkedin.com/in/ale",
-    "icone": "💼"
+    "icone": "💼",
+    "descricao": "Perfil profissional"
   },
   {
     "nome": "Instagram",
@@ -37,11 +40,13 @@
   {
     "nome": "WhatsApp",
     "url": "wa.me/5511999999999",
-    "icone": "💬"
+    "icone": "💬",
+    "descricao": "Enviar mensagem"
   },
   {
     "nome": "Email",
     "url": "mailto:ale@email.com",
-    "icone": "✉️"
+    "icone": "✉️",
+    "descricao": "Enviar email"
   }
 ]
