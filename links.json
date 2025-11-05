@@ -1,130 +1,171 @@
 [
   {
-    "nome": "GitHub",
-    "url": "github.com/ale",
-    "icone": "🐙",
-    "descricao": "Projetos e repositórios",
-    "grupo": "Trabalho"
-  },
-  {
-    "nome": "LinkedIn",
-    "url": "linkedin.com/in/ale",
+    "nome": "Trabalho",
     "icone": "💼",
-    "descricao": "Perfil profissional",
-    "grupo": "Trabalho"
+    "cor": "#3b82f6",
+    "aberto": true,
+    "links": [
+      {
+        "nome": "GitHub",
+        "url": "github.com/ale",
+        "icone": "🐙",
+        "descricao": "Projetos e repositórios"
+      },
+      {
+        "nome": "LinkedIn",
+        "url": "linkedin.com/in/ale",
+        "icone": "🔗",
+        "descricao": "Perfil profissional"
+      },
+      {
+        "nome": "Portfólio",
+        "url": "ale.dev",
+        "icone": "💻",
+        "descricao": "Meus projetos"
+      }
+    ]
   },
   {
-    "nome": "Portfólio",
-    "url": "ale.dev",
-    "icone": "💻",
-    "descricao": "Meus projetos",
-    "grupo": "Trabalho"
-  },
-
-  {
-    "nome": "Instagram",
-    "url": "instagram.com/ale",
-    "icone": "📸",
-    "descricao": "Fotos e hobbies",
-    "grupo": "Pessoal"
-  },
-  {
-    "nome": "YouTube",
-    "url": "youtube.com/@ale",
-    "icone": "▶️",
-    "descricao": "Canal de vídeos",
-    "grupo": "Pessoal"
-  },
-  {
-    "nome": "Twitter / X",
-    "url": "twitter.com/ale",
-    "icone": "🐦",
-    "descricao": "Postagens rápidas",
-    "grupo": "Pessoal"
-  },
-
-  {
-    "nome": "WhatsApp",
-    "url": "wa.me/5511999999999",
-    "icone": "💬",
-    "descricao": "Contato direto",
-    "grupo": "Contato"
+    "nome": "Pessoal",
+    "icone": "🏠",
+    "cor": "#10b981",
+    "aberto": true,
+    "links": [
+      {
+        "nome": "Instagram",
+        "url": "instagram.com/ale",
+        "icone": "📸"
+      },
+      {
+        "nome": "YouTube",
+        "url": "youtube.com/@ale",
+        "icone": "▶️"
+      },
+      {
+        "nome": "Twitter / X",
+        "url": "twitter.com/ale",
+        "icone": "🐦"
+      }
+    ]
   },
   {
-    "nome": "Email",
-    "url": "mailto:ale@email.com",
-    "icone": "✉️",
-    "descricao": "Envie um email",
-    "grupo": "Contato"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   },
   {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   },
   {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   },
   {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   },
   {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   },
   {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
-  },
-  {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
-  },
-  {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
-  },
-  {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
-  },
-  {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Página principal",
-    "grupo": "Outros"
-  },
-  {
-    "nome": "Site Oficial",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao1": "Página principal",
-    "grupo": "Outros"
+    "nome": "Contato",
+    "icone": "☎️",
+    "cor": "#f59e0b",
+    "aberto": false,
+    "links": [
+      {
+        "nome": "WhatsApp",
+        "url": "wa.me/5511999999999",
+        "icone": "💬",
+        "descricao": "Contato direto"
+      },
+      {
+        "nome": "Email",
+        "url": "mailto:ale@email.com",
+        "icone": "✉️",
+        "descricao": "Envie um email"
+      }
+    ]
   }
 ]
