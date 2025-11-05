@@ -1,23 +1,12 @@
 {
-  "name": "links",
+  "name": "linklist-hex-cyber",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aadjesus/links.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aadjesus/links/issues"
-  },
-  "homepage": "https://github.com/aadjesus/links#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.19.2"
   }
 }

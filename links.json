@@ -1,95 +1,47 @@
-﻿[
+[
   {
-    "nome": "Site Oficial",
-    "url": "https://meusite.com.br",
-    "icone": "🌍",
-    "tamanho": "large"
+    "nome": "Meu Site",
+    "url": "meusite.com.br",
+    "icone": "🕸"
+  },
+  {
+    "nome": "GitHub",
+    "url": "github.com/ale",
+    "icone": "🐙"
   },
   {
     "nome": "LinkedIn",
-    "url": "https://linkedin.com/in/ale",
-    "icone": "💼",
-    "tamanho": "large"
+    "url": "linkedin.com/in/ale",
+    "icone": "💼"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "Instagram",
+    "url": "instagram.com/ale",
+    "icone": "📸"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "YouTube",
+    "url": "youtube.com/@ale",
+    "icone": "▶️"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "Portfólio",
+    "url": "ale.dev",
+    "icone": "💻"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "Twitter / X",
+    "url": "twitter.com/ale",
+    "icone": "🐦"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "WhatsApp",
+    "url": "wa.me/5511999999999",
+    "icone": "💬"
   },
   {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙",
-    "tamanho": "small"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
-  },
-  {
-    "nome": "GitHub",
-    "url": "https://github.com/ale",
-    "icone": "🐙"
+    "nome": "Email",
+    "url": "mailto:ale@email.com",
+    "icone": "✉️"
   }
 ]

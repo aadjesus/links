@@ -1,115 +1,192 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinkList - Dark</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Hex LinkGrid</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --neon-pink:#ff00e6;
+      --neon-cyan:#00f6ff;
+      --neon-yellow:#ffe600;
+      --bg1:#050008;
+      --bg2:#120016;
+      --card-size: 140px; /* Tamanho M */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Orbitron',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background: radial-gradient(1000px 600px at 50% -10%, var(--bg2), var(--bg1));
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:28px 14px 40px;
+      gap:18px;
+    }
+    .profile{
+      text-align:center;
+    }
+    .avatar{
+      width:112px;height:112px;border-radius:50%;
+      border:3px solid var(--neon-pink);
+      box-shadow:0 0 16px var(--neon-pink), inset 0 0 10px #000;
+      object-fit:cover;margin-bottom:10px;background:#111;
+    }
+    h1{
+      margin:0;
+      font-size:1.8rem;
+      color:var(--neon-cyan);
+      text-shadow:0 0 10px var(--neon-cyan);
+      letter-spacing:1px;
+    }
+    .subtitle{color:#bdbdbd;margin-top:6px;font-size:.95rem}
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Tahoma, sans-serif;
-            background: #0d0d0d;
-            color: #e5e5e5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 25px;
-        }
+    /* Grid 3 colunas (3x3 simétrico), com leve perspectiva para vibe "hex colmeia" ao hover */
+    .grid-wrap{
+      perspective: 900px;
+      width:100%;
+      max-width: 620px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      transform-style: preserve-3d;
+    }
+    @media (max-width:720px){ .grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width:460px){ .grid{ grid-template-columns: 1fr;} }
 
-        .profile-container {
-            text-align: center;
-            margin-bottom: 28px;
-        }
+    /* Cartão Hex: usamos clip-path para o hexagono e pseudo-elementos para borda e holograma */
+    .hex{
+      position:relative;
+      width:100%;
+      aspect-ratio: 1.15; /* hex médio */
+      min-height: var(--card-size);
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;color:#fff;text-align:center;
+      letter-spacing:.3px;
+      transform: translateZ(0);
+      transition: transform .25s ease, filter .25s ease;
+      /* Contorno/glow base */
+      filter: drop-shadow(0 0 6px rgba(255,0,230,0.35));
+    }
+    /* Forma do hexágono */
+    .hex::before, .hex::after{
+      content:"";
+      position:absolute; inset:0;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      border-radius:8px;
+    }
+    /* Camada de borda neon (contorno) */
+    .hex::before{
+      background:
+        radial-gradient(120% 120% at 10% 10%, rgba(255,0,230,0.25), transparent 35%),
+        radial-gradient(120% 120% at 90% 90%, rgba(0,246,255,0.25), transparent 35%),
+        #0b0010e6;
+      border:1px solid #3a0038;
+      box-shadow:
+        inset 0 0 18px rgba(255,0,230,0.35),
+        inset 0 0 8px rgba(0,246,255,0.25),
+        0 0 10px rgba(255,0,230,0.35);
+    }
+    /* Camada holográfica RGB GLITCH animada (dentro do hex) */
+    .hex::after{
+      mix-blend-mode: screen;
+      opacity:.75;
+      background:
+        conic-gradient(from 0deg,
+          #ff004c,
+          #ff7b00,
+          #ffe600,
+          #14ff00,
+          #00f6ff,
+          #007bff,
+          #7b00ff,
+          #ff00e6,
+          #ff004c);
+      background-size: 200% 200%;
+      animation: holoShift 6s linear infinite;
+      filter: blur(10px);
+      z-index:0;
+    }
+    @keyframes holoShift{
+      0%{ transform: translateZ(0) rotate(0deg) scale(1); background-position: 0% 0%; }
+      50%{ transform: translateZ(0) rotate(180deg) scale(1.02); background-position: 100% 100%; }
+      100%{ transform: translateZ(0) rotate(360deg) scale(1); background-position: 0% 0%; }
+    }
 
-        .avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 2px solid #333;
-            background: #222;
-            margin-bottom: 12px;
-            object-fit: cover;
-        }
+    /* Conteúdo dentro do hex acima das camadas */
+    .hex > .inner{
+      position:relative; z-index:1;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      padding:10px 8px;
+    }
+    .icon{ font-size:1.5rem; margin-bottom:6px; text-shadow:0 0 8px rgba(255,255,255,.25); }
+    .label{ font-size:1rem; }
 
-        h1 {
-            margin: 8px 0;
-            font-size: 1.7rem;
-            color: #fff;
-        }
-
-        p {
-            color: #a1a1a1;
-            margin: 0;
-        }
-
-        .links-container {
-            width: 100%;
-            max-width: 480px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .link-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 1.15rem;
-            cursor: pointer;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.22s;
-            border: 1px solid #222;
-        }
-
-            .link-item:hover {
-                background: #262626;
-                border-color: #444;
-                transform: scale(1.03);
-            }
-
-        .icon {
-            font-size: 1.3rem;
-        }
-    </style>
+    /* Hover com efeito 3D sutil (Hybrid) */
+    .hex:hover{
+      transform: translateY(-6px) rotateX(6deg) rotateY(-3deg);
+      filter: drop-shadow(0 0 14px rgba(0,246,255,0.6));
+    }
+    .hex:hover::before{
+      border-color: var(--neon-cyan);
+      box-shadow:
+        inset 0 0 20px rgba(0,246,255,0.35),
+        0 0 14px rgba(0,246,255,0.6);
+    }
+  </style>
 </head>
 <body>
+  <div class="profile">
+    <img src="assets/avatar.jpg" alt="Avatar" class="avatar">
+    <h1>Neon Hex LinkGrid</h1>
+    <div class="subtitle">RGB Glitch • 3 colunas • Tamanho M</div>
+  </div>
 
-    <div class="profile-container">
-        <img src="assets/avatar.jpg" class="avatar" alt="Avatar" />
-        <h1>Meus Links</h1>
-        <p>Navegue por aí 👇</p>
-    </div>
+  <div class="grid-wrap">
+    <div class="grid" id="grid"></div>
+  </div>
 
-    <div class="links-container" id="links"></div>
+  <script>
+    function normalizarUrl(url){
+      if (!url) return "#";
+      if (url.startsWith("http") || url.startsWith("mailto:") || url.startsWith("wa.me") || url.startsWith("tel:")) return url;
+      return `https://${url}`;
+    }
 
-    <script>
-        async function carregarLinks() {
-            try {
-                const response = await fetch("links.json");
-                const links = await response.json();
-                const container = document.getElementById("links");
+    async function carregarLinks(){
+      try{
+        const res = await fetch("links.json");
+        const links = await res.json();
+        const grid = document.getElementById("grid");
 
-                links.forEach(link => {
-                    const a = document.createElement("a");
-                    a.className = "link-item";
-                    a.href = link.url.startsWith("http") ? link.url : `https://${link.url}`;
-                    a.target = "_blank";
-                    a.innerHTML = `<span class="icon">${link.icone || "🔗"}</span> ${link.nome}`;
-                    container.appendChild(a);
-                });
-            } catch (err) {
-                console.error("Erro ao carregar links.json:", err);
-            }
-        }
-
-        carregarLinks();
-    </script>
-
+        links.forEach(link => {
+          const a = document.createElement("a");
+          a.href = normalizarUrl(link.url);
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.className = "hex";
+          a.innerHTML = `
+            <div class="inner">
+              <div class="icon">${link.icone || "⬢"}</div>
+              <div class="label">${link.nome || "Link"}</div>
+            </div>
+          `;
+          grid.appendChild(a);
+        });
+      }catch(e){
+        console.error("Erro ao carregar links.json", e);
+      }
+    }
+    carregarLinks();
+  </script>
 </body>
 </html>
