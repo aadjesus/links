@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Links</title>
-
+    <title>Links-AAdJesus</title>
+    <link rel="icon" href="assets/favicon.ico">
     <style>
         :root {
             --bg: #0f0f10;
@@ -185,92 +185,13 @@
     </style>
 </head>
 <body>
-
     <div class="profile">
-        <img src="assets/avatar.jpg" alt="Avatar" class="avatar">
-        <h1>Meus Links</h1>
-        <div class="subtitle">Organizados por grupo</div>
+        <img src="assets/avatar.png" alt="Avatar" class="avatar">
     </div>
 
     <div id="container"></div>
 
-    <script>
-        function normalizarUrl(url) {
-            if (!url) return "#";
-            if (url.startsWith("http") || url.startsWith("mailto:")) return url;
-            return `https://${url}`;
-        }
-
-        function salvarEstado(nome, aberto) {
-            const estados = JSON.parse(localStorage.getItem("estadosAccordion") || "{}");
-            estados[nome] = aberto;
-            localStorage.setItem("estadosAccordion", JSON.stringify(estados));
-        }
-
-        function obterEstado(nome, padrao) {
-            const estados = JSON.parse(localStorage.getItem("estadosAccordion") || "{}");
-            return estados[nome] !== undefined ? estados[nome] : padrao;
-        }
-
-        async function carregarLinks() {
-            const container = document.getElementById("container");
-            try {
-                const res = await fetch("links.json");
-                const grupos = await res.json();
-
-                grupos.forEach(grupo => {
-                    const abertoInicial = obterEstado(grupo.nome, grupo.aberto);
-
-                    const accordion = document.createElement("div");
-                    accordion.className = "accordion" + (abertoInicial ? " open" : "");
-
-                    const header = document.createElement("div");
-                    header.className = "accordion-header";
-                    header.style.color = grupo.cor || "var(--text)";
-                    header.innerHTML = `
-                <span class="indicador">▶</span>
-                <span>${grupo.icone ?? "📁"}</span>
-                <span>${grupo.nome}</span>
-              `;
-
-                    header.addEventListener("click", () => {
-                        accordion.classList.toggle("open");
-                        const estaAberto = accordion.classList.contains("open");
-                        salvarEstado(grupo.nome, estaAberto);
-                    });
-
-                    const content = document.createElement("div");
-                    content.className = "accordion-content";
-                    const grid = document.createElement("div");
-                    grid.className = "grid";
-
-                    grupo.links.forEach(link => {
-                        const a = document.createElement("a");
-                        a.href = normalizarUrl(link.url);
-                        a.target = "_blank";
-                        a.rel = "noopener noreferrer";
-                        a.className = "card";
-                        const tooltip = link.descricao ? link.descricao : link.url;
-                        a.setAttribute("data-tip", tooltip);
-                        a.innerHTML = `
-                  <div class="icon">${link.icone ?? "🔗"}</div>
-                  <div class="label">${link.nome}</div>
-                `;
-                        grid.appendChild(a);
-                    });
-
-                    content.appendChild(grid);
-                    accordion.appendChild(header);
-                    accordion.appendChild(content);
-                    container.appendChild(accordion);
-                });
-            } catch (e) {
-                console.error("Erro ao carregar links.json", e);
-            }
-        }
-
-        carregarLinks();
-    </script>
+    <script type="module" src="js/main.js"></script>
 
 </body>
 </html>
