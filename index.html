@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Links</title>
+    <title>Links Agrupados</title>
 
     <style>
         :root {
@@ -14,7 +14,7 @@
             --text: #f5f5f5;
             --text-secondary: #9b9b9b;
             --radius: 8px;
-            --size: 54px; /* mais fino ainda */
+            --size: 54px;
         }
 
         body {
@@ -55,12 +55,56 @@
             color: var(--text-secondary);
         }
 
+        /* Accordion Container */
+        .accordion {
+            width: 100%;
+            max-width: 480px;
+            margin-bottom: 10px;
+            border-radius: var(--radius);
+            background: transparent;
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #1c1c1e;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            transition: 0.2s ease;
+        }
+
+            .accordion-header:hover {
+                border-color: var(--border-hover);
+                background: #232326;
+            }
+
+        .accordion-icon {
+            font-size: 1rem;
+        }
+
+        .accordion-content {
+            padding: 10px 0 4px;
+            display: none;
+        }
+
+        .accordion.open .accordion-content {
+            display: block;
+        }
+
+        /* Grid dentro do Accordion */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             width: 100%;
-            max-width: 460px;
+            padding: 0 6px;
         }
 
         @media (max-width: 600px) {
@@ -75,6 +119,7 @@
             }
         }
 
+        /* Cards */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -113,7 +158,7 @@
             text-overflow: ellipsis;
         }
 
-        /* Tooltip fix + mais consistente */
+        /* Tooltip */
         .card::after {
             content: attr(data-tip);
             position: absolute;
@@ -142,10 +187,10 @@
     <div class="profile">
         <img src="assets/avatar.jpg" alt="Avatar" class="avatar">
         <h1>Meus Links</h1>
-        <div class="subtitle">Acesso rápido</div>
+        <div class="subtitle">Organizados por grupo</div>
     </div>
 
-    <div class="grid" id="grid"></div>
+    <div id="container"></div>
 
     <script>
         function normalizarUrl(url) {
@@ -155,27 +200,58 @@
         }
 
         async function carregarLinks() {
-            const grid = document.getElementById("grid");
+            const container = document.getElementById("container");
             try {
                 const res = await fetch("links.json");
                 const links = await res.json();
 
+                // Agrupa por grupo
+                const grupos = {};
                 links.forEach(link => {
-                    const a = document.createElement("a");
-                    a.href = normalizarUrl(link.url);
-                    a.target = "_blank";
-                    a.rel = "noopener noreferrer";
-                    a.className = "card";
+                    const grupo = link.grupo || "Outros";
+                    if (!grupos[grupo]) grupos[grupo] = [];
+                    grupos[grupo].push(link);
+                });
 
-                    // agora tooltip funciona mesmo sem descrição
-                    const tooltip = link.descricao ? link.descricao : link.url;
-                    a.setAttribute("data-tip", tooltip);
+                // Monta os accordions
+                Object.keys(grupos).forEach(nomeGrupo => {
+                    const grupo = grupos[nomeGrupo];
 
-                    a.innerHTML = `
-                <div class="icon">${link.icone ?? "🔗"}</div>
-                <div class="label">${link.nome}</div>
-              `;
-                    grid.appendChild(a);
+                    // Cria o Accordion principal
+                    const accordion = document.createElement("div");
+                    accordion.className = "accordion open";
+
+                    // Cabeçalho com ícone e título
+                    const header = document.createElement("div");
+                    header.className = "accordion-header";
+                    header.innerHTML = `<span class="accordion-icon">📂</span> ${nomeGrupo}`;
+                    header.addEventListener("click", () => accordion.classList.toggle("open"));
+
+                    // Conteúdo do grupo
+                    const content = document.createElement("div");
+                    content.className = "accordion-content";
+                    const grid = document.createElement("div");
+                    grid.className = "grid";
+
+                    grupo.forEach(link => {
+                        const a = document.createElement("a");
+                        a.href = normalizarUrl(link.url);
+                        a.target = "_blank";
+                        a.rel = "noopener noreferrer";
+                        a.className = "card";
+                        const tooltip = link.descricao ? link.descricao : link.url;
+                        a.setAttribute("data-tip", tooltip);
+                        a.innerHTML = `
+                  <div class="icon">${link.icone ?? "🔗"}</div>
+                  <div class="label">${link.nome}</div>
+                `;
+                        grid.appendChild(a);
+                    });
+
+                    content.appendChild(grid);
+                    accordion.appendChild(header);
+                    accordion.appendChild(content);
+                    container.appendChild(accordion);
                 });
             } catch (e) {
                 console.error("Erro ao carregar links.json", e);

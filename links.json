@@ -1,52 +1,130 @@
 [
   {
-    "nome": "Meu Site",
-    "url": "meusite.com.br",
-    "icone": "🕸",
-    "descricao": "Site oficial"
-  },
-  {
     "nome": "GitHub",
     "url": "github.com/ale",
     "icone": "🐙",
-    "descricao": "Projetos e repositórios"
+    "descricao": "Projetos e repositórios",
+    "grupo": "Trabalho"
   },
   {
     "nome": "LinkedIn",
     "url": "linkedin.com/in/ale",
     "icone": "💼",
-    "descricao": "Perfil profissional"
-  },
-  {
-    "nome": "Instagram",
-    "url": "instagram.com/ale",
-    "icone": "📸"
-  },
-  {
-    "nome": "YouTube",
-    "url": "youtube.com/@ale",
-    "icone": "▶️"
+    "descricao": "Perfil profissional",
+    "grupo": "Trabalho"
   },
   {
     "nome": "Portfólio",
     "url": "ale.dev",
-    "icone": "💻"
+    "icone": "💻",
+    "descricao": "Meus projetos",
+    "grupo": "Trabalho"
+  },
+
+  {
+    "nome": "Instagram",
+    "url": "instagram.com/ale",
+    "icone": "📸",
+    "descricao": "Fotos e hobbies",
+    "grupo": "Pessoal"
+  },
+  {
+    "nome": "YouTube",
+    "url": "youtube.com/@ale",
+    "icone": "▶️",
+    "descricao": "Canal de vídeos",
+    "grupo": "Pessoal"
   },
   {
     "nome": "Twitter / X",
     "url": "twitter.com/ale",
-    "icone": "🐦"
+    "icone": "🐦",
+    "descricao": "Postagens rápidas",
+    "grupo": "Pessoal"
   },
+
   {
     "nome": "WhatsApp",
     "url": "wa.me/5511999999999",
     "icone": "💬",
-    "descricao": "Enviar mensagem"
+    "descricao": "Contato direto",
+    "grupo": "Contato"
   },
   {
     "nome": "Email",
     "url": "mailto:ale@email.com",
     "icone": "✉️",
-    "descricao": "Enviar email"
+    "descricao": "Envie um email",
+    "grupo": "Contato"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao": "Página principal",
+    "grupo": "Outros"
+  },
+  {
+    "nome": "Site Oficial",
+    "url": "meusite.com.br",
+    "icone": "🕸",
+    "descricao1": "Página principal",
+    "grupo": "Outros"
   }
 ]
