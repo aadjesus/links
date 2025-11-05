@@ -9,12 +9,12 @@
         :root {
             --bg: #0f0f10;
             --card-bg: #1a1a1c;
-            --border: #2b2b2d;
-            --border-hover: #4b4b4f;
+            --border: #262629;
+            --border-hover: #3a3a3d;
             --text: #f5f5f5;
             --text-secondary: #9b9b9b;
             --radius: 8px;
-            --size: 68px; /* card mais fino */
+            --size: 54px; /* mais fino ainda */
         }
 
         body {
@@ -25,42 +25,42 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 26px;
+            padding: 24px;
         }
 
         .profile {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .avatar {
-            width: 85px;
-            height: 85px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             border: 2px solid var(--border);
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: #222;
         }
 
         h1 {
             margin: 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
         }
 
         .subtitle {
-            margin-top: 4px;
-            font-size: 0.86rem;
+            margin-top: 3px;
+            font-size: 0.82rem;
             color: var(--text-secondary);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            max-width: 480px;
+            max-width: 460px;
         }
 
         @media (max-width: 600px) {
@@ -82,14 +82,14 @@
             min-height: var(--size);
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 8px 10px;
+            justify-content: flex-start;
+            padding: 6px 10px;
             text-decoration: none;
             color: var(--text);
-            transition: 0.18s ease;
+            transition: 0.16s ease;
             position: relative;
             cursor: pointer;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             gap: 8px;
         }
 
@@ -99,15 +99,25 @@
             }
 
         .icon {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             display: flex;
+            width: 22px;
+            justify-content: center;
         }
 
-        /* Tooltip simples */
-        .card:hover::after {
+        .label {
+            font-size: 0.88rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Tooltip fix + mais consistente */
+        .card::after {
             content: attr(data-tip);
             position: absolute;
-            bottom: -30px;
+            bottom: -32px;
             left: 50%;
             transform: translateX(-50%);
             background: #000;
@@ -116,13 +126,14 @@
             font-size: 0.72rem;
             border-radius: 5px;
             white-space: nowrap;
-            opacity: 1;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity 0.12s ease;
+            z-index: 5;
         }
 
-        .card::after {
-            opacity: 0;
-            transition: 0.12s ease;
+        .card:hover::after {
+            opacity: 1;
         }
     </style>
 </head>
@@ -155,7 +166,11 @@
                     a.target = "_blank";
                     a.rel = "noopener noreferrer";
                     a.className = "card";
-                    a.setAttribute("data-tip", link.descricao ?? link.url);
+
+                    // agora tooltip funciona mesmo sem descrição
+                    const tooltip = link.descricao ? link.descricao : link.url;
+                    a.setAttribute("data-tip", tooltip);
+
                     a.innerHTML = `
                 <div class="icon">${link.icone ?? "🔗"}</div>
                 <div class="label">${link.nome}</div>
