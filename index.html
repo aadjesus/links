@@ -3,28 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neon LinkGrid</title>
+    <title>LinkList - Dark</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
-
-        :root {
-            --neon-pink: #ff00e6;
-            --neon-cyan: #00f6ff;
-            --bg1: #050008;
-            --bg2: #120016;
-        }
-
         body {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle at top, var(--bg2), var(--bg1));
-            color: #fff;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #0d0d0d;
+            color: #e5e5e5;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 30px 15px;
-            min-height: 100vh;
+            padding: 25px;
         }
 
         .profile-container {
@@ -33,67 +23,58 @@
         }
 
         .avatar {
-            width: 120px;
-            height: 20px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid var(--neon-pink);
-            box-shadow: 0 0 12px var(--neon-pink);
-            object-fit: cover;
+            border: 2px solid #333;
+            background: #222;
             margin-bottom: 12px;
+            object-fit: cover;
         }
 
         h1 {
-            font-size: 1.8rem;
+            margin: 8px 0;
+            font-size: 1.7rem;
+            color: #fff;
+        }
+
+        p {
+            color: #a1a1a1;
             margin: 0;
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+        .links-container {
             width: 100%;
-            max-width: 600px;
-        }
-
-        @media (max-width: 700px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 430px) {
-            .grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        .card {
-            background: #0c0012cc;
-            padding: 2px;
-            border-radius: 10px;
-            border: 1px solid #30002f;
-            box-shadow: 0 0 10px #ff00e660;
+            max-width: 480px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.25s ease-in-out;
-            text-align: center;
+            gap: 12px;
         }
 
-            .card:hover {
-                transform: translateY(-4px) scale(1.05);
-                border-color: var(--neon-cyan);
-                box-shadow: 0 0 12px var(--neon-cyan);
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.22s;
+            border: 1px solid #222;
+        }
+
+            .link-item:hover {
+                background: #262626;
+                border-color: #444;
+                transform: scale(1.03);
             }
 
         .icon {
-            font-size: 1.5rem;
-            margin-bottom: 6px;
+            font-size: 1.3rem;
         }
     </style>
 </head>
@@ -101,26 +82,26 @@
 
     <div class="profile-container">
         <img src="assets/avatar.jpg" class="avatar" alt="Avatar" />
-        <h1>Neon Grid</h1>
-        <p style="color:#bbb; margin-top:6px;">3x3 Cyber Links ⚡</p>
+        <h1>Meus Links</h1>
+        <p>Navegue por aí 👇</p>
     </div>
 
-    <div class="grid" id="grid"></div>
+    <div class="links-container" id="links"></div>
 
     <script>
         async function carregarLinks() {
             try {
                 const response = await fetch("links.json");
                 const links = await response.json();
-                const grid = document.getElementById("grid");
+                const container = document.getElementById("links");
 
                 links.forEach(link => {
                     const a = document.createElement("a");
+                    a.className = "link-item";
                     a.href = link.url.startsWith("http") ? link.url : `https://${link.url}`;
                     a.target = "_blank";
-                    a.className = "card";
-                    a.innerHTML = `<div class="icon">${link.icone || "🔗"}</div><div>${link.nome}</div>`;
-                    grid.appendChild(a);
+                    a.innerHTML = `<span class="icon">${link.icone || "🔗"}</span> ${link.nome}`;
+                    container.appendChild(a);
                 });
             } catch (err) {
                 console.error("Erro ao carregar links.json:", err);
