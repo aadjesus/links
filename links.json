@@ -1,171 +1,76 @@
 [
   {
-    "nome": "Trabalho",
+    "nome": "Streaming",
+    "icone": "📺",
+    "cor": "#FF0000",
+    "aberto": true,
+    "links": [
+      {"nome":"5p0t1fy","url":"open.spotify.com/user/aadjesus", "icone": "🎧"},
+      {"nome":"Rumble","url":"rumble.com/c/aadjesus", "icone": "🦬"},
+      {"nome":"Y0utube","url":"www.youtube.com/@aadjesus", "icone": "▶️"},
+      {"nome":"Tw1tch","url":"twitch.tv/aadjesus", "icone": "💜"}
+    ]
+  },
+  {
+    "nome": "Programação",
+    "icone": "💻",
+    "cor": "#009688",
+    "aberto": true,
+    "links": [
+      {"nome":"G1thub","url":"github.com/aadjesus", "icone": "🐙"},
+      {"nome":"Stack0verfl0w","url":"stackoverflow.name/aadjesus", "icone": "❓"},
+      {"nome":"M3d1um","url":"medium.com/@aadjesus", "icone": "📝"},
+      {"nome":"Gr4v4t4r","url":"en.gravatar.com/aadjesus", "icone": "👤"},
+      {"nome":"L1near","url":"linear.app/aadjesus", "descricao": "Ferramenta de gerenciamento ágil de projetos (issues e sprints), focada em velocidade para equipes de software.", "icone": "📈"}
+    ]
+  },
+  {
+    "nome": "Rede social",
+    "icone": "💬",
+    "cor": "#4267B2",
+    "aberto": true,
+    "links": [
+      {"nome":"T1kt0k","url":"www.tiktok.com/@aadjesus", "icone": "🎶"},
+      {"nome":"Tw1tt3r","url":"twitter.com/aadjesus", "icone": "🐦"},
+      {"nome":"D1sc0rd","url":"discord.com/aadjesus#7735", "icone": "🎮"},
+      {"nome":"1nst4gr4m","url":"www.instagram.com/aadjesus", "icone": "📸"},
+      {"nome":"Bluesky","url":"bsky.app/profile/aadjesus.bsky.social", "icone": "🟦"},
+      {"nome":"P1nt3r3st","url":"br.pinterest.com/aadjesus/", "icone": "📌"},
+      {"nome":"Tumblr","url":"www.tumblr.com/blog/aadjesus", "icone": "⚫"},
+      {"nome":"R3dd1t","url":"www.reddit.com/user/aadjesus", "icone": "🪡"},
+      {"nome":"t1nd3r","url":"tinder.com/@aadjesus", "icone": "❤️‍🔥"},
+      {"nome":"Gettr","url":"gettr.com/user/aadjesus", "icone": "📣"},
+      {"nome":"0nlyf4ns","url":"onlyfans.com/aadjesus", "icone": "🌶️"}
+    ]
+  },
+  {
+    "nome": "Sistemas de Gerenciamento de Conteúdo",
+    "icone": "📰",
+    "cor": "#00567C",
+    "aberto": true,
+    "links": [
+      {"nome":"W0rdpr355","url":"aadjesus.wordpress.com/", "icone": "W"},
+      {"nome":"Bl0gsp0t","url":"aadjesus.blogspot.com/", "icone": "B"}
+    ]
+  },
+  {
+    "nome": "Links",
+    "icone": "🔗",
+    "cor": "#4CAF50",
+    "aberto": true,
+    "links": [
+      {"nome":"B34c0ns.41","url":"beacons.ai/aadjesus", "icone": "🚥"},
+      {"nome":"linklist","url": "linklist.bio/aadjesus", "icone": "📋" },
+      {"nome":"B1tly","url":"bit.ly/m/aadjesus", "icone": "✂️"}
+    ]
+  },
+  {
+    "nome": "Profissional",
     "icone": "💼",
-    "cor": "#3b82f6",
+    "cor": "#0A66C2",
     "aberto": true,
     "links": [
-      {
-        "nome": "GitHub",
-        "url": "github.com/ale",
-        "icone": "🐙",
-        "descricao": "Projetos e repositórios"
-      },
-      {
-        "nome": "LinkedIn",
-        "url": "linkedin.com/in/ale",
-        "icone": "🔗",
-        "descricao": "Perfil profissional"
-      },
-      {
-        "nome": "Portfólio",
-        "url": "ale.dev",
-        "icone": "💻",
-        "descricao": "Meus projetos"
-      }
-    ]
-  },
-  {
-    "nome": "Pessoal",
-    "icone": "🏠",
-    "cor": "#10b981",
-    "aberto": true,
-    "links": [
-      {
-        "nome": "Instagram",
-        "url": "instagram.com/ale",
-        "icone": "📸"
-      },
-      {
-        "nome": "YouTube",
-        "url": "youtube.com/@ale",
-        "icone": "▶️"
-      },
-      {
-        "nome": "Twitter / X",
-        "url": "twitter.com/ale",
-        "icone": "🐦"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
-    ]
-  },
-  {
-    "nome": "Contato",
-    "icone": "☎️",
-    "cor": "#f59e0b",
-    "aberto": false,
-    "links": [
-      {
-        "nome": "WhatsApp",
-        "url": "wa.me/5511999999999",
-        "icone": "💬",
-        "descricao": "Contato direto"
-      },
-      {
-        "nome": "Email",
-        "url": "mailto:ale@email.com",
-        "icone": "✉️",
-        "descricao": "Envie um email"
-      }
+      {"nome":"L1nk3d1n","url":"www.linkedin.com/in/aadjesus/", "icone": "👔"}
     ]
   }
 ]
